@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeus Levi C. Zapanta - Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --main-light: #e0e0e0;
+      --main-dark: #121212;
+      --section-light: #ffffff;
+      --section-dark: #2c2c2c;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--main-light);
+      font-family: Arial, sans-serif;
+    }
+
+    body.dark-mode {
+      background-color: var(--main-dark);
+      color: #e0e0e0;
+    }
+
+    header, .navbar {
+      background-color: #6c757d !important;
+    }
+
+    .navbar-brand,
+    .nav-link {
+      color: #ffffff !important;
+    }
+
+    .dark-mode .btn-outline-light {
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+
+    .dark-mode .btn-outline-light:hover {
+      background-color: #ffffff;
+      color: var(--dark);
+    }
+
+    .dark-mode .card {
+      background-color: #333;
+      color: #e0e0e0;
+    }
+
+    .section {
+      min-height: 100vh;
+      padding-top: 80px;
+      padding-bottom: 80px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      scroll-margin-top: 80px;
+      background-color: var(--section-light);
+      border-radius: 15px;
+      margin-bottom: 30px;
+    }
+
+    .dark-mode .section {
+      background-color: var(--section-dark);
+    }
+
+    footer {
+      border-top: 1px solid #ccc;
+    }
+
+    .navbar .nav-link {
+      cursor: pointer;
+    }
+
+    #sideNav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 220px;
+      background-color: #6c757d;
+      padding-top: 60px;
+      z-index: 1050;
+    }
+
+    #sideNav .nav-link {
+      color: white;
+      padding: 15px 20px;
+      display: block;
+      transition: background 0.3s ease;
+    }
+
+    #sideNav .nav-link:hover {
+      background-color: #5a6268;
+    }
+
+    #sideNav i {
+      font-size: 1.5rem;
+      margin-right: 10px;
+    }
+
+    #sideNav .nav-link span {
+      display: inline-block;
+    }
+
+    .main-content {
+      margin-left: 240px;
+      margin-right: 20px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .dark-mode .main-content {
+      background-color: #121212;
+    }
+
+    .container {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    .main-content {
+      padding-top: 50px;
+    }
+
+    .progress {
+      height: 30px;
+    }
+
+    .tall-progress {
+      height: 50px;
+    }
+
+    .progress-bar {
+      font-weight: bold;
+      padding-left: 10px;
+    }
+
+    /* Dynamic button styles */
+    .btn-send {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .dark-mode .btn-send {
+      background-color: #28a745;
+      color: #fff;
+    }
+
+    .btn-send:hover {
+      background-color: #0056b3;
+    }
+
+    .dark-mode .btn-send:hover {
+      background-color: #218838;
+    }
+
+    .about-img {
+      border: 5px solid #6c757d;
+      border-radius: 50%;
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    /* Increased spacing and larger text */
+    .section h1, .section h2, .section p {
+      font-size: 1.5rem;
+    }
+
+    /* Adjusted title styles */
+    .section#home h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-top: -50px; /* Raise the title */
+      margin-bottom: 2rem; /* Space below title */
+    }
+
+    .section#about h2, 
+    .section#skills h2, 
+    .section#projects h2, 
+    .section#contact h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-top: -50px; /* Raise the title */
+      margin-bottom: 2rem; /* Space below title */
+    }
+
+    .section#about p,
+    .section#skills p,
+    .section#projects p,
+    .section#contact p {
+      font-size: 1.25rem;
+    }
+
+    .section#home p {
+      font-size: 1.5rem;
+    }
+
+    .section#about p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin-top: 60px; /* Add more space between the image and the text */
+    }
+
+    .section#contact label, .section#contact textarea, .section#contact input {
+      font-size: 1.1rem;
+    }
+
+    /* Adjusted spacing for sections */
+    .section#about {
+      padding-top: 120px; /* Increase the space above the About section */
+      padding-bottom: 120px; /* Add more space below the About section */
+    }
+
+    .section#skills {
+      padding-top: 100px; /* Increase the space above the Skills section */
+      padding-bottom: 100px; /* Add more space below the Skills section */
+    }
+
+    .section#contact {
+      padding-top: 120px; /* Increase the space above the Contact section */
+      padding-bottom: 120px; /* Add more space below the Contact section */
+    }
+  </style>
+</head>
+<body>
+  <div id="sideNav">
+    <a class="nav-link" href="#home">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a class="nav-link" href="#about">
+      <i class="fas fa-user"></i>
+      <span>About</span>
+    </a>
+    <a class="nav-link" href="#skills">
+      <i class="fas fa-cogs"></i>
+      <span>Skills</span>
+    </a>
+    <a class="nav-link" href="#projects">
+      <i class="fas fa-project-diagram"></i>
+      <span>Projects</span>
+    </a>
+    <a class="nav-link" href="#contact">
+      <i class="fas fa-envelope"></i>
+      <span>Contact</span>
+    </a>
+    <a class="nav-link" href="javascript:void(0)" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up"></i>
+      <span>Back to Top</span>
+    </a>
+    <button class="nav-link btn btn-link text-white w-100 text-start" id="toggleTheme">
+      <i class="fas fa-adjust"></i><span> Toggle Dark Mode</span>
+    </button>
+  </div>
+
+  <div class="main-content">
+    <section id="home" class="section">
+      <div class="container text-center">
+        <img src="Profile.jpg" alt="Zeus Levi C. Zapanta" class="rounded-circle mb-5" style="width: 240px; height: 240px; object-fit: cover; border: 5px solid #6c757d;">
+        <h1 class="display-4 fw-bold mt-4">Hey! I'm Zeus Levi C. Zapanta</h1>
+        <p class="lead">I'm a first-year student currently enrolled at the University of Baguio taking up Computer Science.</p>
+      </div>
+    </section> 
+
+    <section id="about" class="section">
+      <div class="container text-center">
+        <h2>About Me</h2>
+        <img src="About.jpg" class="about-img mb-4" alt="Zeus Levi C. Zapanta">
+        <p>I am deeply passionate about technology and the ever-evolving world of web development. With a strong drive to create meaningful and impactful solutions, I dedicate myself to continuous learning and skill-building across various technological domains. My focus lies in harnessing the power of innovation to solve real-world problems and craft experiences that resonate with users. I aim to push the boundaries of what's possible, contributing to projects that not only demonstrate technical expertise but also inspire creativity and forward-thinking solutions.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container text-center">
+        <h2>Skills</h2>
+        <div class="progress mb-3"><div class="progress-bar bg-success" style="width:75%">HTML (75)</div></div>
+        <div class="progress mb-3"><div class="progress-bar bg-primary" style="width:70%">CSS (70)</div></div>
+        <div class="progress mb-2"><div class="progress-bar bg-warning" style="width:65%">JavaScript (65)</div></div>
+
+        <p class="mt-4"><strong>CSS Breakdown:</strong></p>
+        <div class="progress mb-2"><div class="progress-bar bg-info" style="width:80%">Inline CSS (80)</div></div>
+        <div class="progress mb-2"><div class="progress-bar bg-secondary" style="width:85%">Internal CSS (85)</div></div>
+        <div class="progress mb-4"><div class="progress-bar bg-dark" style="width:75%">External CSS (75)</div></div>
+
+        <p><strong>Code Breakdown:</strong></p>
+        <div class="progress tall-progress mb-2"><div class="progress-bar bg-danger" style="width:83%">Code Readability (83)</div></div>
+        <div class="progress tall-progress mb-2"><div class="progress-bar bg-info" style="width:85%">Clean Formatting (85)</div></div>
+        <div class="progress tall-progress mb-3"><div class="progress-bar bg-success" style="width:78%">Code Structuring (78)</div></div>
+      </div>
+    </section>
+
+    <section id="projects" class="section d-flex flex-column justify-content-between">
+      <div class="container text-center d-flex flex-column" style="min-height: 80vh;">
+        <h2 class="mb-4">Projects</h2>
+        <div class="mt-auto">
+          <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+              <div class="card h-100">
+                <img src="CSS3.png" class="card-img-top" alt="Project 1">
+                <div class="card-body">
+                  <h5 class="card-title">Project 1</h5>
+                  <p class="card-text">Transformed a page by replacing inline CSS with internal CSS and integrated a responsive background image for improved styling and structure.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100">
+                <img src="CSS4.3.png" class="card-img-top" alt="Project 2">
+                <div class="card-body">
+                  <h5 class="card-title">Project 2</h5>
+                  <p class="card-text">Implemented external CSS to apply distinct colors to key text segments, creating a cleaner and more flexible design system.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100">
+                <img src="CSS6.png" class="card-img-top" alt="Project 3">
+                <div class="card-body">
+                  <h5 class="card-title">Project 3</h5>
+                  <p class="card-text">Separated articles and embedded working links with hover effects and animations for improved readability and interactivity.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-auto">
+          <p class="text-muted mt-5">
+            <i class="fas fa-info-circle"></i>
+            <em> These are some of my current works. This section will be updated regularly as I complete new projects and improve existing ones.</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="text-center mb-5">Contact Me</h2>
+        <div class="d-flex justify-content-center">
+          <form class="w-75">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn-send">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+
+    <footer class="bg-dark text-white text-center py-4">
+      <p>&copy; 2025 Zeus Levi C. Zapanta | All rights reserved.</p>
+    </footer>
+  </div>
+  
+  <script>
+    // Theme toggle
+    const toggleThemeButton = document.getElementById("toggleTheme");
+    toggleThemeButton.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+
+    // Scroll to top function
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
