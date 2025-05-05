@@ -227,6 +227,131 @@
       padding-top: 120px; /* Increase the space above the Contact section */
       padding-bottom: 120px; /* Add more space below the Contact section */
     }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      #sideNav {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1050;
+        background-color: #6c757d;
+        padding: 10px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      #sideNav .nav-link {
+        display: none; /* Hide links initially */
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+      }
+
+      #sideNav .nav-link.show {
+        display: block; /* Show links when dropdown is open */
+      }
+
+      #sideNav .dropdown-toggle {
+        display: block;
+        padding: 10px;
+        text-align: center;
+        color: white;
+        background-color: #5a6268;
+        border: none;
+        width: 100%;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      #sideNav .dropdown-toggle:hover {
+        background-color: #495057;
+      }
+
+      .main-content {
+        margin-top: 60px; /* Account for fixed navbar */
+      }
+
+      .main-content {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 20px;
+      }
+
+      .about-img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .section h1, .section h2, .section p {
+        font-size: 1.2rem;
+      }
+
+      .section#home h1 {
+        font-size: 2.5rem;
+      }
+
+      .section#about h2, 
+      .section#skills h2, 
+      .section#projects h2, 
+      .section#contact h2 {
+        font-size: 2rem;
+      }
+
+      .progress {
+        height: 20px;
+      }
+
+      .tall-progress {
+        height: 30px;
+      }
+
+      .btn-send {
+        width: 100%;
+      }
+
+      .card {
+        margin-bottom: 20px;
+      }
+
+      footer {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .about-img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .section h1, .section h2, .section p {
+        font-size: 1rem;
+      }
+
+      .section#home h1 {
+        font-size: 2rem;
+      }
+
+      .section#about h2, 
+      .section#skills h2, 
+      .section#projects h2, 
+      .section#contact h2 {
+        font-size: 1.5rem;
+      }
+
+      .progress-bar {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Hide dropdown toggle for desktop */
+    @media (min-width: 769px) {
+      #sideNav .dropdown-toggle {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -379,6 +504,18 @@
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // Dropdown toggle for mobile navigation
+    const dropdownToggle = document.createElement('button');
+    dropdownToggle.classList.add('dropdown-toggle');
+    dropdownToggle.innerText = 'Menu';
+    const sideNav = document.getElementById('sideNav');
+    sideNav.insertBefore(dropdownToggle, sideNav.firstChild);
+
+    dropdownToggle.addEventListener('click', () => {
+      const navLinks = sideNav.querySelectorAll('.nav-link');
+      navLinks.forEach(link => link.classList.toggle('show'));
+    });
   </script>
 </body>
 </html>
