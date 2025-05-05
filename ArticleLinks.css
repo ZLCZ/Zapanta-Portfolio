@@ -1,0 +1,23 @@
+a:link {
+    color: red;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: yellow;
+    text-decoration: line-through;
+}
+
+a:active {
+    color: green;
+    text-decoration: overline;
+}
+
+@keyframes blink {
+    50% { opacity: 10%; }
+}
+
+a:hover {
+    color: blue;
+    animation: blink 0.7s step-end infinite;
+}

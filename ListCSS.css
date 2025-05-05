@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: beige;
+}
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.list1 { color:indigo; }   
+.list2 { color:crimson; }  
+.list3 { color:darkorange; } 
+.list4 { color:blue; } 
+.list5 { color:forestgreen; }  
+.list6 { color:darkviolet; }   
+
+.list2 ul {
+    list-style-type: circle;
+}
+
+.list3 ul {
+    list-style-type: square;
+}
+
+.list5 ul {
+    list-style-type: circle;
+}
+
+.list6 ul {
+    list-style-type: square;
+}
